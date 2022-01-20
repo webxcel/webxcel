@@ -43,7 +43,7 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:p-10 p-2">
-      <div class="lg:col-span-5 col-span-1">
+      <div class="lg:col-span-5 col-span-1 hidden">
         <div class="lg:pl-3 text-gray-400 font-light mb-3 pl-4">Recent</div>
         <div
           class="card lg:card-side shadow-lg border-t-4 border-b-2 border-secondary"
