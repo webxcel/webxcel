@@ -8,13 +8,21 @@ declare module 'vue' {
     Details: typeof import('./components/create-app/details.vue')['default']
     IconsComponent: typeof import('./components/icons-component.vue')['default']
     ImportRepo: typeof import('./components/create-app/import-repo.vue')['default']
+    MdiArrowLeft: typeof import('~icons/mdi/arrow-left')['default']
     MdiArrowRight: typeof import('~icons/mdi/arrow-right')['default']
     MdiBellOutline: typeof import('~icons/mdi/bell-outline')['default']
+    MdiBitbucket: typeof import('~icons/mdi/bitbucket')['default']
+    MdiEmail: typeof import('~icons/mdi/email')['default']
     MdiEmailOutline: typeof import('~icons/mdi/email-outline')['default']
+    MdiGithub: typeof import('~icons/mdi/github')['default']
+    MdiGitlab: typeof import('~icons/mdi/gitlab')['default']
     MdiHomeOutline: typeof import('~icons/mdi/home-outline')['default']
     MdiLink: typeof import('~icons/mdi/link')['default']
     MdiMagnify: typeof import('~icons/mdi/magnify')['default']
+    MdiOpenInNew: typeof import('~icons/mdi/open-in-new')['default']
     MdiPencil: typeof import('~icons/mdi/pencil')['default']
+    NewWorkspace: typeof import('./components/home/new-workspace.vue')['default']
+    Uiux: typeof import('./components/new-project/uiux.vue')['default']
   }
 }
 
