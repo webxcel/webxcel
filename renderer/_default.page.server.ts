@@ -4,6 +4,7 @@ import { escapeInject } from "vite-plugin-ssr";
 import { createApp } from "./app";
 import { getPageTitle } from "./getPageTitle";
 import type { PageContext } from "./types";
+import { Octokit } from "octokit";
 
 export { passToClient };
 export { render };
@@ -14,6 +15,9 @@ const passToClient = [
   "documentProps",
   "routeParams",
   "initialState",
+  "redirectTo",
+  "user",
+  "token",
 ];
 
 async function render(pageContext: PageContextBuiltIn & PageContext) {
@@ -21,6 +25,8 @@ async function render(pageContext: PageContextBuiltIn & PageContext) {
   const app = createApp(pageContext);
   const stream = renderToNodeStream(app);
   const url = pageContext.urlPathname;
+  //@ts-ignore
+  const token = pageContext.token;
   const title = getPageTitle(pageContext);
   const desc =
     (pageContext.pageExports.documentProps || {}).description ||

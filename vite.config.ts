@@ -6,6 +6,8 @@ import AutoImport from "unplugin-auto-import/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import Icons from "unplugin-icons/vite";
 import Components from "unplugin-vue-components/vite";
+import { readFileSync } from "fs";
+import telefunc from "telefunc/vite";
 
 const config: UserConfig = {
   resolve: {
@@ -47,8 +49,15 @@ const config: UserConfig = {
     Icons({
       autoInstall: true,
     }),
+    telefunc(),
   ],
   clearScreen: false,
+  server: {
+    https: {
+      key: readFileSync("./certs/voice-in.com+5-key.pem"),
+      cert: readFileSync("./certs/voice-in.com+5.pem"),
+    },
+  },
 };
 
 export default config;
