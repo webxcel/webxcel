@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="navbar shadow-lg bg-neutral text-neutral-content">
+    <!-- <div class="navbar shadow-lg bg-neutral text-neutral-content">
       <div class="flex-1 md:pl-16 mx-2">
         <span class="text-lg font-bold"> Webxcel | Front-end </span>
       </div>
@@ -21,7 +21,7 @@
           </svg>
         </button>
       </div>
-    </div>
+    </div> -->
     <slot />
   </div>
 </template>

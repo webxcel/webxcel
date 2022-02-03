@@ -1,13 +1,20 @@
 <template>
   <div class="flex lg:w-9/12 w-full flex-col space-y-5">
     <div>
-      <button
-        @click="githubLogin"
+      <!-- <button
+        @click="testLogin"
         class="btn btn-block text-lg flex normal-case space-x-4"
       >
         <mdi-github />
         <div class="">Continue with Github</div>
-      </button>
+      </button> -->
+      <a
+        href="https://github.com/login/oauth/authorize?response_type=code&scope=repo%2Cadmin%3Aorg&client_id=9dd7f6cd4bab283bf9c9"
+        class="btn btn-block text-lg flex normal-case space-x-4"
+      >
+        <mdi-github />
+        <div class="">Continue with Github</div>
+      </a>
     </div>
     <div>
       <button
@@ -45,8 +52,9 @@
   // import { buildUrl } from "build-url-ts";
   import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
   import { navigate } from "vite-plugin-ssr/client/router";
+  import { $fetch } from "ohmyfetch";
 
-  export default {
+  export default defineComponent({
     layout: "signup",
     props: ["git"],
     setup() {
@@ -58,12 +66,19 @@
       };
     },
     methods: {
+      async testLogin() {
+        // await $fetch(
+        //   "https://github.com/login/oauth/authorize?response_type=code&scope=repo%2Cadmin%3Aorg&client_id=9dd7f6cd4bab283bf9c9"
+        // );
+        const res = await $fetch("https://localhost:3000/v1/auth/github");
+        console.log("result", res);
+      },
       githubLogin() {
         //@ts-ignore
         const auth = getAuth(this.$fireapp);
         const provider = new GithubAuthProvider();
         provider.addScope("repo");
-        provider.addScope("user");
+        provider.addScope("admin:org");
 
         signInWithPopup(auth, provider)
           .then((result) => {
@@ -75,8 +90,9 @@
             const user = result.user;
             console.log("result", result);
             console.log("token", token);
+            console.log("credentials", credential);
             this.store.githubL({ token, user, credential });
-            navigate("/p");
+            navigate("/organisation");
           })
           .catch((error) => {
             // Handle Errors here.
@@ -90,5 +106,5 @@
           });
       },
     },
-  };
+  });
 </script>

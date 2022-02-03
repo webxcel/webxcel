@@ -1,27 +1,10 @@
 <template>
-  <div>
+  <div class="relative">
     <div
       class="navbar lg:px-10 sticky top-0 z-10 mb-2 shadow-lg bg-neutral text-neutral-content"
     >
-      <div class="flex-none">
-        <button class="btn btn-square btn-ghost">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            class="inlie-block w-6 h-6 stroke-current text-success"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"
-            />
-          </svg>
-        </button>
-      </div>
-      <div class="flex-1 px-2 mx-2">
-        <span class="text-xl font-bold">Workspace</span>
+      <div class="flex-1">
+        <span class="text-xl font-bold">Webxcel | Workspace</span>
       </div>
       <div class="navbar-end">
         <div class="form-control mr-3">
@@ -43,14 +26,14 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:p-10 p-2">
-      <div class="lg:col-span-5 col-span-1 hidden">
+      <div class="lg:col-span-5 col-span-1">
         <div class="lg:pl-3 text-gray-400 font-light mb-3 pl-4">Recent</div>
         <div
           class="card lg:card-side shadow-lg border-t-4 border-b-2 border-secondary"
         >
           <div class="card-body">
             <div></div>
-            <h2 class="card-title lg:text-4xl text-3xl">Awesome app</h2>
+            <h2 class="card-title lg:text-4xl text-3xl">Josh's workspace</h2>
             <p class="text-sm text-gray-400">Workspace for enineering forms</p>
 
             <div class="flex space-x-2 py-3 mt-2">
@@ -106,13 +89,14 @@
               Other workspaces
             </div>
           </div>
-          <div class="flex-none">
+          <!-- <div class="flex-none">
             <a href="#create-app" class="btn btn-primary">Create new web app</a>
-          </div>
+          </div> -->
         </div>
       </div>
       <div v-for="(n, i) in 3" :key="i" class="col-span-1">
         <div
+          tabindex="0"
           class="card shadow-lg max-w-sm border-t-4 border-b-2 border-secondary"
         >
           <figure>
@@ -169,6 +153,12 @@
       >
         <component @data="switchComponent" :is="currentD" />
       </div>
+    </div>
+
+    <div class="fixed right-5 bottom-5">
+      <button tabindex="0" class="btn btn-lg btn-circle shadow-md">
+        <mdi-plus />
+      </button>
     </div>
   </div>
 </template>

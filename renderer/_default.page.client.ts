@@ -1,11 +1,13 @@
 import { createApp } from "./app";
 import { getPageTitle } from "./getPageTitle";
-import { useClientRouter } from "vite-plugin-ssr/client/router";
+import { navigate, useClientRouter } from "vite-plugin-ssr/client/router";
 import type { PageContext } from "./types";
 import type { PageContextBuiltInClient } from "vite-plugin-ssr/client/router";
 import "./styles/index.css";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+import { createPinia } from "pinia";
+import { useAppStore } from "#/store/app";
 
 let app: ReturnType<typeof createApp>;
 const { hydrationPromise } = useClientRouter({
@@ -14,6 +16,22 @@ const { hydrationPromise } = useClientRouter({
       app = createApp(pageContext);
       app.mount("#app");
     } else {
+      const pinia = createPinia();
+      const store = useAppStore();
+      const allowed = ["/signup", "/github"];
+      //@ts-ignore
+      const { redirectTo, urlPathname } = pageContext;
+      const token = store.github.token;
+      console.log("client", token);
+      if (!token) {
+        if (!allowed.includes(urlPathname)) {
+          return navigate("/signup");
+        }
+      }
+      if (redirectTo) {
+        navigate(redirectTo);
+        return;
+      }
       app.changePage(pageContext);
     }
     document.title = getPageTitle(pageContext);
