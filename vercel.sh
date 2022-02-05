@@ -5,22 +5,22 @@
 # Documentation: https://vercel.com/docs/file-system-api
 
 # Step 1: Cleanup
-sudo rm -rf .output
+rm -rf .output
 
 # Step 2: Build the app
-sudo yarn build
+yarn build
 
 # Step 3: Create output folder
-sudo mkdir .output
+mkdir .output
 
 # Step 4: Copy static assets
-sudo mkdir -p .output/static
-sudo cp -a dist/client/. .output/static
+mkdir -p .output/static
+cp -a dist/client/. .output/static
 
 # Step 5: Bundle render function with it's depdendencies to the single javascript file
 # If you are using typescript, simply replace extension with ".ts"
-sudo mkdir -p .output/server/pages
-sudo yarn ncc build vercel/render.js --minify --out .output/server/pages
+mkdir -p .output/server/pages
+yarn ncc build vercel/render.js --minify --out .output/server/pages
 
 # Step 6: Make render function run on every request (catch all)
 cat >.output/routes-manifest.json <<EOF
