@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # We are deploying using Vercel File System API.
 # This is basically just a specific file structure in the "output" folder
 # Documentation: https://vercel.com/docs/file-system-api
