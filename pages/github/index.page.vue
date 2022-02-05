@@ -4,23 +4,24 @@
   </div>
 </template>
 <script lang="ts">
-  import { useAppStore } from "#/store/app";
-  import { navigate } from "vite-plugin-ssr/client/router";
+import { useAppStore } from "#/store/app";
+import { navigate } from "vite-plugin-ssr/client/router";
 
-  export default defineComponent({
-    props: ["token"],
-    setup() {
-      const store = useAppStore();
-      return {
-        store,
-      };
-    },
-    async mounted() {
-      if (this.token) {
-        // this.store.setGithubtoken(this.token);
-        this.store.github.token = this.token;
-        return navigate("/organisations");
-      }
-    },
-  });
+export default defineComponent({
+  props: ["token"],
+  setup() {
+    const store = useAppStore();
+    return {
+      store,
+    };
+  },
+  async mounted() {
+    if (this.token) {
+      // this.store.setGithubtoken(this.token);
+      this.store.github.token = this.token;
+      this.store.currentProvider = 'github'
+      return navigate("/organisations");
+    }
+  },
+});
 </script>

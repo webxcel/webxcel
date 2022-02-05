@@ -88,7 +88,12 @@
 
     <footer class="p-10 footer bg-base-200 text-base-content">
       <div class="flex flex-row space-x-1">
-        <img src="quizpen.svg" height="50px" width="50px" />
+        <img
+          alt="Oladokun joshua"
+          src="https://avatars.githubusercontent.com/u/44656210?v=4"
+          height="50px"
+          width="50px"
+        />
         <div class="flex space-x-1">
           <div class="text-4xl font-bold">Quizpen</div>
           <div class="badge badge-sm badge-primary font-bold">Beta</div>

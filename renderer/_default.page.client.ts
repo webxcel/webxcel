@@ -15,13 +15,16 @@ const { hydrationPromise } = useClientRouter({
     if (!app) {
       app = createApp(pageContext);
       app.mount("#app");
+      console.log("app");
     } else {
+      console.log("app2");
       const pinia = createPinia();
       const store = useAppStore();
       const allowed = ["/signup", "/github"];
       //@ts-ignore
       const { redirectTo, urlPathname } = pageContext;
-      const token = store.github.token;
+      const token =
+        store.github.token || store.gitlab.token || store.bitbucket.token;
       console.log("client", token);
       if (!token) {
         if (!allowed.includes(urlPathname)) {

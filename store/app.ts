@@ -7,13 +7,19 @@ export const useAppStore = defineStore("app", {
         token: "",
         user: "",
       },
-      gitlab: {},
-      bitbucket: {},
+      gitlab: { token: "", user: "" },
+      bitbucket: { token: "", user: "" },
+      currentProvider: "",
+      newRepo: {
+        name: "",
+        importMembers: false,
+        importProjects: false,
+        importTeams: false,
+      },
     };
   },
   actions: {
     setGithubtoken(token: string) {
-      console.log("ttoke", token);
       this.github.token = token;
     },
     setGithubUser(user: any) {
