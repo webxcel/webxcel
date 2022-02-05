@@ -13,6 +13,9 @@ yarn build
 # Step 3: Create output folder
 mkdir .output
 
+#Add vercel ncc
+yarn global add @vercel/ncc
+
 # Step 4: Copy static assets
 mkdir -p .output/static
 cp -a dist/client/. .output/static
