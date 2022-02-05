@@ -4,7 +4,7 @@
     "dev": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && cross-env NODE_ENV=development ts-node ./server",
     "prod": "npm run build && npm run prod:serve",
     "// Build for production": "",
-    "build": "node -v && npm -v && npm clean-install && npm run build:clean && npm run build:vite && npm run build:prerender",
+    "build": "vite build && vite build --ssr",
     "build:clean": "rimraf dist/",
     "build:vite": "vite build && vite build --ssr",
     "build:prerender": "vite-plugin-ssr prerender",
