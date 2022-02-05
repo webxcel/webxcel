@@ -4,7 +4,7 @@ import "../dist/server/importBuild.js";
 
 const renderPage = createPageRenderer({ isProduction: true });
 
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
   const { url } = req;
 
   console.log("Request to url:", url);
