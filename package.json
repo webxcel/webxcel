@@ -10,7 +10,7 @@
     "build:prerender": "vite-plugin-ssr prerender",
     "// Static serve for production": "",
     "prod:serve": "serve dist/client/ --listen 3000",
-    "vercel-build": "./vercel/deploy.sh"
+    "vercel-build": "sudo ./vercel/deploy.sh"
   },
   "dependencies": {
     "@brillout/json-s": "^0.4.3",
