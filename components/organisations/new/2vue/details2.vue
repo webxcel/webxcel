@@ -48,7 +48,7 @@
 </template>
 <script lang="ts">
 import Loading1 from "#/components/base/loading.vue";
-import { getOrg } from "#/pages/organisations/get-org.telefunc";
+// import { getOrg } from "#/pages/organisations/get-org.telefunct";
 import { usePageContext } from "#/renderer/usePageContext";
 import { useAppStore } from "#/store/app";
 

@@ -28,7 +28,7 @@ import ky from "ky";
 import { usePageContext } from "../../renderer/usePageContext";
 import { useAppStore } from "#/store/app";
 import { navigate } from "vite-plugin-ssr/client/router";
-
+import { Client } from 'rpc-websockets'
 export default defineComponent({
   props: ["token"],
   components: {
@@ -59,6 +59,17 @@ export default defineComponent({
         return (this.currentD = "import-repo");
       }
     },
+    getWeb() {
+      const ws = new Client('wss://localhost:3000')
+
+      ws.on('open', function () {
+        // call an RPC method with parameters
+        ws.call('getSum', [5, 3]).then(function (result) {
+          console.log('result', result)
+        })
+
+      })
+    }
   },
   setup(props) {
     const pageContext: any = usePageContext();
@@ -74,9 +85,10 @@ export default defineComponent({
       return
     }
     let p = this
-    setTimeout(() => {
-      p.currentD = "list-orgs";
-    }, 3000);
+    // setTimeout(() => {
+    //   p.currentD = "list-orgs";
+    // }, 3000);
+    this.getWeb()
   },
 });
 </script>

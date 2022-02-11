@@ -57,6 +57,7 @@ const config: UserConfig = {
       key: readFileSync("./certs/voice-in.com+5-key.pem"),
       cert: readFileSync("./certs/voice-in.com+5.pem"),
     },
+    port: 3000,
   },
 };
 

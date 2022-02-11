@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "npm run dev",
-    "dev": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && cross-env NODE_ENV=development ts-node ./server",
+    "dev": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && cross-env NODE_ENV=development ts-node ./server/hyper.ts",
     "prod": "npm run build && npm run prod:serve",
     "// Build for production": "",
     "build": "vite build && vite build --ssr",
@@ -43,6 +43,7 @@
     "helmet": "^5.0.2",
     "history": "^5.2.0",
     "http-status": "^1.5.0",
+    "hyper-express": "^5.7.1",
     "javascript-time-ago": "^2.3.11",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",

@@ -14,7 +14,7 @@ specifiers:
   '@types/node': ^16.11.22
   '@types/node-fetch': ^2.5.12
   '@types/nprogress': ^0.2.0
-  '@vercel/ncc': ^0.33.1
+  '@vercel/ncc': 0.32.0
   '@vitejs/plugin-vue': ^2.1.0
   '@vue/compiler-sfc': 3.2.26
   '@vue/server-renderer': 3.2.26
@@ -36,6 +36,7 @@ specifiers:
   helmet: ^5.0.2
   history: ^5.2.0
   http-status: ^1.5.0
+  hyper-express: ^5.7.1
   javascript-time-ago: ^2.3.11
   joi: ^17.6.0
   jsonwebtoken: ^8.5.1
@@ -88,7 +89,7 @@ dependencies:
   '@types/express': 4.17.13
   '@types/node': 16.11.22
   '@types/node-fetch': 2.5.12
-  '@vercel/ncc': 0.33.1
+  '@vercel/ncc': 0.32.0
   '@vitejs/plugin-vue': 2.1.0_vite@2.7.13+vue@3.2.26
   '@vue/compiler-sfc': 3.2.26
   '@vue/server-renderer': 3.2.26_vue@3.2.26
@@ -109,6 +110,7 @@ dependencies:
   helmet: 5.0.2
   history: 5.2.0
   http-status: 1.5.0
+  hyper-express: 5.7.1
   javascript-time-ago: 2.3.11
   joi: 17.6.0
   jsonwebtoken: 8.5.1
@@ -1115,6 +1117,12 @@ packages:
     resolution: {integrity: sha512-wJsiX1tosQ+J5+bY5LrSahHxr2wT+uME5UDwdN1kg4frt40euqA+wzECkmq4t5QbveHiJepfdThgQrPw6KiSlg==}
     dev: false
 
+  /@types/busboy/0.3.2:
+    resolution: {integrity: sha512-iEvdm9Z9KdSs/ozuh1Z7ZsXrOl8F4M/CLMXPZHr3QuJ4d6Bjn+HBMC5EMKpwpAo8oi8iK9GZfFoHaIMrrZgwVw==}
+    dependencies:
+      '@types/node': 16.11.22
+    dev: false
+
   /@types/connect/3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
@@ -1223,8 +1231,8 @@ packages:
       '@types/webidl-conversions': 6.1.1
     dev: false
 
-  /@vercel/ncc/0.33.1:
-    resolution: {integrity: sha512-Mlsps/P0PLZwsCFtSol23FGqT3FhBGb4B1AuGQ52JTAtXhak+b0Fh/4T55r0/SVQPeRiX9pNItOEHwakGPmZYA==}
+  /@vercel/ncc/0.32.0:
+    resolution: {integrity: sha512-S/SxTHHTbBQSOutpgnqEn+LyTfZcq9xMRAnzY05HpGVjxjmfmvg6SWZZkbW/GJIFznMmHGeGOrI1MEBD7efIkA==}
     hasBin: true
     dev: false
 
@@ -1641,6 +1649,13 @@ packages:
     resolution: {integrity: sha512-XBTfeMbWWAMuDiSryb9B9add1pxyKsnJk/ZabC8mt/SfOLKu/8Xo6+0uusRSQsfZ2X5iijquFDbGFiT1QE0XIg==}
     dev: false
 
+  /busboy/1.4.0:
+    resolution: {integrity: sha512-TytIELfX6IPn1OClqcBz0NFE6+JT9e3iW0ZpgnEl7ffsfDxvRZGHfPaSHGbrI443nSV3GutCDWuqLB6yHY92Ew==}
+    engines: {node: '>=10.16.0'}
+    dependencies:
+      streamsearch: 1.1.0
+    dev: false
+
   /bytes/3.0.0:
     resolution: {integrity: sha1-0ygVQE1olpn4Wk6k+odV3ROpYEg=}
     engines: {node: '>= 0.8'}
@@ -1866,6 +1881,11 @@ packages:
     resolution: {integrity: sha1-4wOogrNCzD7oylE6eZmXNNqzriw=}
     dev: false
 
+  /cookie-signature/1.1.0:
+    resolution: {integrity: sha512-Alvs19Vgq07eunykd3Xy2jF0/qSNv2u7KDbAek9H5liV1UMijbqFs5cycZvv5dVsvseT/U4H8/7/w8Koh35C4A==}
+    engines: {node: '>=6.6.0'}
+    dev: false
+
   /cookie/0.4.1:
     resolution: {integrity: sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==}
     engines: {node: '>= 0.6'}
@@ -1973,6 +1993,11 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.2
+
+  /decode-uri-component/0.2.0:
+    resolution: {integrity: sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=}
+    engines: {node: '>=0.10'}
+    dev: false
 
   /deep-extend/0.6.0:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}
@@ -2436,6 +2461,11 @@ packages:
     dependencies:
       to-regex-range: 5.0.1
 
+  /filter-obj/1.1.0:
+    resolution: {integrity: sha1-mzERErxsYSehbgFsbF1/GeCAXFs=}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   /finalhandler/1.1.2:
     resolution: {integrity: sha512-aAWcW57uxVNrQZqFXjITpW3sIUQmHGG3qSb9mUah9MgMC4NeWhNOlNjXEYq3HjRAvL6arUviZGGJsBg6z0zsWA==}
     engines: {node: '>= 0.8'}
@@ -2660,6 +2690,24 @@ packages:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
     dev: true
+
+  /hyper-express/5.7.1:
+    resolution: {integrity: sha512-P03pj1Dp1SJfOIjfUkav0X/nZxQwoQdoNXbLmiq3REWZ//om/kUAEZtaJdcC+oHxdUiKklwpgKxk3T5C8jLWSQ==}
+    dependencies:
+      '@types/busboy': 0.3.2
+      '@types/express': 4.17.13
+      '@types/node': 16.11.22
+      accepts: 1.3.8
+      busboy: 1.4.0
+      cookie: 0.4.1
+      cookie-signature: 1.1.0
+      mime-types: 2.1.34
+      query-string: 7.1.1
+      range-parser: 1.2.1
+      type-is: 1.6.18
+      uid-safe: 2.1.5
+      uWebSockets.js: github.com/uNetworking/uWebSockets.js/a58e810e47a23696410f6073c8c905dc38f75da5
+    dev: false
 
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -3624,6 +3672,16 @@ packages:
     engines: {node: '>=0.6'}
     dev: false
 
+  /query-string/7.1.1:
+    resolution: {integrity: sha512-MplouLRDHBZSG9z7fpuAAcI7aAYjDLhtsiVZsevsfaHWDS2IDdORKbSd1kWUA+V4zyva/HZoSfpwnYMMQDhb0w==}
+    engines: {node: '>=6'}
+    dependencies:
+      decode-uri-component: 0.2.0
+      filter-obj: 1.1.0
+      split-on-first: 1.1.0
+      strict-uri-encode: 2.0.0
+    dev: false
+
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
@@ -4009,6 +4067,11 @@ packages:
     dev: false
     optional: true
 
+  /split-on-first/1.1.0:
+    resolution: {integrity: sha512-43ZssAJaMusuKWL8sKUBQXHWOpq8d6CfN/u1p4gUzfJkM05C8rxTmYrkIPTXapZpORA6LkkzcUulJ8FqA7Uudw==}
+    engines: {node: '>=6'}
+    dev: false
+
   /sprintf-js/1.0.3:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=}
     dev: false
@@ -4020,6 +4083,16 @@ packages:
   /statuses/1.5.0:
     resolution: {integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /streamsearch/1.1.0:
+    resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
+    engines: {node: '>=10.0.0'}
+    dev: false
+
+  /strict-uri-encode/2.0.0:
+    resolution: {integrity: sha1-ucczDHBChi9rFC3CdLvMWGbONUY=}
+    engines: {node: '>=4'}
     dev: false
 
   /string-width/4.2.3:
@@ -4769,3 +4842,9 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  github.com/uNetworking/uWebSockets.js/a58e810e47a23696410f6073c8c905dc38f75da5:
+    resolution: {tarball: https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/a58e810e47a23696410f6073c8c905dc38f75da5}
+    name: uWebSockets.js
+    version: 20.6.0
+    dev: false

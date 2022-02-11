@@ -27,7 +27,7 @@
 </template>
 <script lang="ts">
 import Loading1 from "#/components/base/loading.vue";
-import { getOrg } from "#/pages/organisations/get-org.telefunc";
+// import { getOrg } from "#/pages/organisations/get-org.telefunct";
 import { usePageContext } from "#/renderer/usePageContext";
 import { useAppStore } from "#/store/app";
 
@@ -63,11 +63,11 @@ export default defineComponent({
       this.loading = true
       const provider: any = this.store.currentProvider
       //@ts-ignore
-      await getOrg({ token: this.store[provider].token, org: this.name })
-        .then((e) => {
-          console.log('g', e)
-          this.details = { ...e.orgs.data }
-        })
+      // await getOrg({ token: this.store[provider].token, org: this.name })
+      //   .then((e) => {
+      //     console.log('g', e)
+      //     this.details = { ...e.orgs.data }
+      //   })
       this.loading = false
     }
   },

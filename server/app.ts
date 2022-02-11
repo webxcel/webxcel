@@ -2,13 +2,6 @@ import express from "express";
 import { createPageRenderer } from "vite-plugin-ssr";
 import * as vite from "vite";
 import { telefunc, telefuncConfig, provideTelefuncContext } from "telefunc";
-import helmet from "helmet";
-//@ts-ignore
-import xss from "xss-clean";
-import mongoSanitize from "express-mongo-sanitize";
-import cors from "cors";
-//@ts-ignore
-import compression from "compression";
 
 const isProduction = process.env.NODE_ENV === "production";
 const root = `${__dirname}/..`;
@@ -29,7 +22,6 @@ const createApp = async () => {
 
   // parse urlencoded request body
   app.use(express.urlencoded({ extended: true }));
-
 
   // app.use(
   //   cors({
